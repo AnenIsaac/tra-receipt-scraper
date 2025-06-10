@@ -1,11 +1,9 @@
 FROM python:3.12
 #set environment variables
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 
 RUN mkdir -p /app
-
-
 
 COPY . /app
 WORKDIR /app
@@ -13,8 +11,8 @@ WORKDIR /app
 # install chrome binary for selenium
 RUN apt-get update \
     && apt-get install -y \
-        chromium-browser \
-        chromium-chromedriver \
+        chromium \
+        chromium-driver \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
