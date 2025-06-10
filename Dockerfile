@@ -14,7 +14,9 @@ WORKDIR /app
 RUN apt-get update \
     && apt-get install -y \
         chromium-browser \
-        chromium-chromedriver 
+        chromium-chromedriver \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 
 # apt-get update \
