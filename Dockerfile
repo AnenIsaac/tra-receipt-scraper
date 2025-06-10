@@ -8,19 +8,15 @@ RUN mkdir -p /app
 COPY . /app
 WORKDIR /app
 
-# install chrome binary and specific chromedriver version for selenium
+# install chrome binary for selenium
 RUN apt-get update \
     && apt-get install -y \
         chromium \
-        wget \
-        unzip \
-    && wget https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.68/linux64/chromedriver-linux64.zip \
-    && unzip chromedriver-linux64.zip \
-    && mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver \
-    && chmod +x /usr/local/bin/chromedriver \
-    && rm -rf chromedriver-linux64.zip chromedriver-linux64 \
+        chromium-driver \
+        chromium-l10n \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -s /usr/bin/chromium /usr/bin/chrome
 
 
 # apt-get update \

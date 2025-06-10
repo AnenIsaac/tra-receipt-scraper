@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-your_secret_key_here'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["scraper.zawadii.app"]
+ALLOWED_HOSTS = ["scraper.zawadii.app", "localhost:8000", "localhost"]
 
 # Application definition
 INSTALLED_APPS = [

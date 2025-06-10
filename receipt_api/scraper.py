@@ -6,7 +6,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import WebDriverException
-from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import re
 import logging
@@ -39,8 +38,8 @@ def get_html_content(url, max_retries=3, wait_time=1):
     
     for attempt in range(max_retries):
         try:
-            # Use webdriver_manager to automatically manage ChromeDriver
-            service = Service(ChromeDriverManager().install())
+            # Use system-installed ChromeDriver
+            service = Service('/usr/bin/chromedriver')
             driver = webdriver.Chrome(service=service, options=chrome_options)
             
             # Set page load timeout
