@@ -33,4 +33,4 @@ RUN apt-get update \
 RUN pip3 install --upgrade pip \
     && pip3 install gunicorn \
     && pip3 install psycopg2 \
-    && pip3 install -r requirements.txt 
+    # && pip3 install -r requirements.txt 
